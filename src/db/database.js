@@ -214,49 +214,16 @@ function seedDefaults() {
     stmts.createUser.run(
       'hero',
       '1234',
-      'Sir Tharin (Demo Hero)',
+      'Sir Tharin',
       'student',
       'tharin',
       'python',
-      250,
-      350,
-      3,
-      JSON.stringify(['simple-boots', 'simple-sword', 'wooden-shield', 'mahogany-glasses']),
-      'COCO-101'
-    );
-    const heroUser = stmts.getUserByUsername.get('hero');
-    stmts.upsertProgress.run(
-      heroUser.id,
-      'dungeons-of-kithgard',
+      0,
+      150,
       1,
-      3,
-      'hero.moveRight()\nhero.moveDown()\nhero.moveRight()',
-      'python',
-      3,
-      18
+      JSON.stringify(['simple-boots', 'simple-sword']),
+      null
     );
-  }
-
-  const teacher = stmts.getUserByUsername.get('teacher');
-  if (!teacher) {
-    stmts.createUser.run(
-      'teacher',
-      '1234',
-      'Master Wizard (Educator)',
-      'teacher',
-      'amara',
-      'python',
-      1200,
-      2000,
-      10,
-      JSON.stringify(['simple-boots', 'Compound-boots', 'simple-sword', 'long-sword', 'wooden-shield', 'mahogany-glasses', 'builders-hammer', 'arcane-staff']),
-      'COCO-101'
-    );
-    const teacherUser = stmts.getUserByUsername.get('teacher');
-    const existingClass = stmts.getClassroomByCode.get('COCO-101');
-    if (!existingClass) {
-      stmts.createClassroom.run('COCO-101', 'CS101: Intro to Python & Game Logic', teacherUser.id, 'python');
-    }
   }
 }
 

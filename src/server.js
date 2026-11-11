@@ -144,7 +144,7 @@ const server = http.createServer(async (req, res) => {
       }
 
       if (username !== 'hero' || password !== '1234') {
-        return sendJson(res, 401, { ok: false, error: 'อนุญาตเฉพาะบัญชี Hard Login: Username "hero" และ Password "1234" เท่านั้น' });
+        return sendJson(res, 401, { ok: false, error: 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง (Invalid username or password)' });
       }
 
       const row = stmts.getUserByUsername.get('hero');

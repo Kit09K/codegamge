@@ -5,11 +5,10 @@ node_modules/
 .DS_Store
 Thumbs.db
 
-# SQLite WAL & SHM temporary files
-data/*.db-shm
-data/*.db-wal
-*.db-shm
-*.db-wal
+# SQLite database files
+data/*.db*
+*.db*
+!data/.gitkeep
 
 # Logs & temp
 *.log

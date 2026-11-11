@@ -39,6 +39,5 @@ npm test
 - **Live URL (หลัง Deploy)**: `https://codegamge.onrender.com`
 - **Health Check Path**: `/api/health`
 
-### บัญชีทดสอบ (1-Click Demo Login บนหน้าเว็บ)
-- **นักเรียน (Student)**: Username `hero` / Password `1234`
-- **อาจารย์ (Teacher)**: Username `teacher` / Password `1234` (รหัสห้องเรียน: `COCO-101`)
+### ข้อมูลบัญชีผู้ใช้เริ่มต้น
+- **นักเรียน (Hero)**: Username `hero` / Password `1234` (เริ่มต้นเลเวล 1, XP 0, 150 Gems, ยังไม่มีด่านที่ผ่าน)

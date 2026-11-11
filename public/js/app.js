@@ -688,13 +688,13 @@ const App = {
     if (d) d.classList.add('hidden');
   },
 
-  // ==================== AUTH & MODALS (HARD LOGIN: hero / 1234) ====================
+  // ==================== AUTH & MODALS ====================
   openAuthModal() {
     this.closeModals();
     const userInp = document.getElementById('auth-username');
     const passInp = document.getElementById('auth-password');
-    if (userInp && !userInp.value) userInp.value = 'hero';
-    if (passInp && !passInp.value) passInp.value = '1234';
+    if (userInp) userInp.value = '';
+    if (passInp) passInp.value = '';
     const errEl = document.getElementById('auth-error-msg');
     if (errEl) errEl.classList.add('hidden');
     document.getElementById('modal-auth').classList.remove('hidden');
@@ -720,18 +720,6 @@ const App = {
     this.renderWorlds();
     this.closeModals();
     this.toast(`ยินดีต้อนรับ ${this.user.displayName}! ⚔️`);
-  },
-
-  async quickDemoLogin() {
-    const res = await this.api('/api/auth/login', 'POST', { username: 'hero', password: '1234' });
-    if (res.ok) {
-      this.user = res.user;
-      this.progress = res.progress || {};
-      this.renderAuthBar();
-      this.renderWorlds();
-      this.closeModals();
-      this.toast(`เข้าสู่ระบบสำเร็จในชื่อ ${this.user.displayName}!`);
-    }
   },
 
   async logout() {
