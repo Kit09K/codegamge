@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <radialGradient id="tharin-bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f39c12" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#1e293b" stop-opacity="0.95"/>
+    </radialGradient>
+    <linearGradient id="gold-armor" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="50%" stop-color="#e67e22"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="steel-helm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8"/>
+      <stop offset="50%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="24" fill="url(#tharin-bg)" stroke="#e67e22" stroke-width="3"/>
+  <!-- Shoulders / Pauldrons -->
+  <path d="M20 110 C24 85 40 76 64 76 C88 76 104 85 108 110 Z" fill="url(#steel-helm)" stroke="#f59e0b" stroke-width="2"/>
+  <path d="M14 96 C20 80 34 82 44 90 C36 106 24 112 14 112 Z" fill="url(#gold-armor)"/>
+  <path d="M114 96 C108 80 94 82 84 90 C92 106 104 112 114 112 Z" fill="url(#gold-armor)"/>
+  <circle cx="64" cy="96" r="6" fill="#f59e0b" stroke="#fff" stroke-width="1.5"/>
+  <!-- Neck / Gorget -->
+  <path d="M50 78 L78 78 L72 88 L56 88 Z" fill="#334155" stroke="#64748b" stroke-width="1"/>
+  <!-- Helmet Base -->
+  <path d="M38 48 C38 24 90 24 90 48 C90 70 82 82 64 82 C46 82 38 70 38 48 Z" fill="url(#steel-helm)" stroke="#94a3b8" stroke-width="2"/>
+  <!-- Gold Plume Crest -->
+  <path d="M60 12 C60 12 64 8 68 12 C72 16 76 26 76 34 L52 34 C52 26 56 16 60 12 Z" fill="url(#gold-armor)" stroke="#b45309" stroke-width="1.5"/>
+  <path d="M64 6 C66 14 66 28 64 34" stroke="#fef08a" stroke-width="2" stroke-linecap="round"/>
+  <!-- Visor Faceplate -->
+  <path d="M42 46 C42 44 86 44 86 46 L82 66 L64 74 L46 66 Z" fill="#1e293b" stroke="#e67e22" stroke-width="2"/>
+  <!-- Visor Slits (Glowing golden eyes) -->
+  <rect x="48" y="52" width="12" height="4" rx="1.5" fill="#fbbf24" filter="drop-shadow(0 0 3px #f59e0b)"/>
+  <rect x="68" y="52" width="12" height="4" rx="1.5" fill="#fbbf24" filter="drop-shadow(0 0 3px #f59e0b)"/>
+  <!-- Helmet Breath Vents -->
+  <circle cx="58" cy="64" r="1.5" fill="#475569"/>
+  <circle cx="64" cy="65" r="1.5" fill="#475569"/>
+  <circle cx="70" cy="64" r="1.5" fill="#475569"/>
+  <!-- Helmet Brow Browplate -->
+  <path d="M40 44 L64 48 L88 44 L86 40 L64 43 L42 40 Z" fill="url(#gold-armor)"/>
+</svg>

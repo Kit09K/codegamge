@@ -1,0 +1,13 @@
+{
+  "name": "codegamge",
+  "version": "1.0.0",
+  "description": "Codegamge — Python & JavaScript Coding RPG",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node tests/verify.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}

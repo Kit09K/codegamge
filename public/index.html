@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codegamge — Learn Python & JavaScript Through Play</title>
+  <link rel="stylesheet" href="/rpgui/rpgui.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="product-codecombat dark-theme rpgui-cursor-default">
+
+  <!-- ==================== TOP NAVIGATION BAR ==================== -->
+  <header id="main-nav" class="coco-navbar rpgui-navbar-wood">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="#/" class="brand-logo" onclick="App.navigate('home'); return false;">
+          <div class="rpgui-icon sword rpgui-icon-sm"></div>
+          <div class="logo-text-wrap">
+            <span class="logo-title">Codegamge</span>
+            <span class="logo-badge">CODING RPG</span>
+          </div>
+        </a>
+
+        <nav class="nav-links">
+          <a href="#/play" class="nav-item" data-nav="worlds" onclick="App.navigate('worlds'); return false;">
+            <span class="rpgui-icon weapon-slot rpgui-icon-xs"></span>
+            <span data-i18n="navPlay">Play Campaigns</span>
+          </a>
+          <a href="#/shop" class="nav-item" onclick="App.openShopModal(); return false;">
+            <span class="rpgui-icon shield rpgui-icon-xs"></span>
+            <span data-i18n="navShop">Heroes & Gear</span>
+          </a>
+          <a href="#/leaderboard" class="nav-item" onclick="App.openLeaderboardModal(); return false;">
+            <span class="rpgui-icon ring-slot rpgui-icon-xs"></span>
+            <span data-i18n="navLeaderboard">Leaderboard</span>
+          </a>
+          <div class="mobile-menu-utils">
+            <button class="btn-coco btn-sm btn-ghost" onclick="App.toggleLocale()">🌐 Switch TH / EN</button>
+            <button class="btn-coco btn-sm btn-ghost" onclick="App.toggleAudio()">🔊 Toggle SFX</button>
+          </div>
+        </nav>
+      </div>
+
+      <div class="nav-right">
+        <!-- Language Switcher (TH / EN) -->
+        <button id="btn-locale" class="btn-pill btn-ghost" onclick="App.toggleLocale()" title="Switch UI Language">
+          🌐 <span id="locale-label">TH / EN</span>
+        </button>
+
+        <!-- Sound / Music Toggle -->
+        <button id="btn-nav-audio" class="btn-pill btn-ghost" onclick="App.toggleAudio()" title="Toggle Sound & Music">
+          🔊 <span id="audio-label">SFX On</span>
+        </button>
+
+        <!-- User Stats & Auth Area -->
+        <div id="nav-user-stats" class="user-stats-bar hidden">
+          <button class="stat-chip hero-chip" onclick="App.openShopModal()" title="Change Hero or Gear">
+            <span id="nav-hero-avatar">🤺</span>
+            <span id="nav-user-name">Sir Tharin</span>
+          </button>
+          <span class="stat-chip xp-chip" title="Player Level & XP">
+            <span class="rpgui-icon potion-green rpgui-icon-xs"></span>
+            Lv.<strong id="nav-user-level">1</strong> <span class="xp-detail-text">(<span id="nav-user-xp">0</span> XP)</span>
+          </span>
+          <span class="stat-chip gem-chip" title="Gems for buying gear & heroes">
+            <span class="rpgui-icon potion-blue rpgui-icon-xs"></span>
+            <strong id="nav-user-gems">150</strong> 💎
+          </span>
+          <button class="btn-coco btn-sm btn-danger-outline" onclick="App.logout()">Logout</button>
+        </div>
+
+        <div id="nav-guest-buttons" class="guest-auth-bar">
+          <button class="rpgui-button golden rpgui-btn-nav" type="button" onclick="App.openAuthModal('login')"><p>🔑 Login</p></button>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="btn-mobile-menu" class="btn-mobile-menu" onclick="App.toggleMobileMenu()" aria-label="Menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== VIEW 1: LANDING / HOME PAGE ==================== -->
+  <main id="view-home" class="coco-view active">
+    <section class="hero-section">
+      <div class="hero-container">
+        <div class="hero-copy">
+          <div class="eyebrow-tag">⚔️ PYTHON & JAVASCRIPT CODING RPG</div>
+          <h1 class="hero-headline">
+            Learn to code through the power of play.
+          </h1>
+          <hr class="golden rpgui-hr-divider" />
+          <p class="hero-subtext">
+            ฝึกเขียนโปรแกรม <strong>Python</strong> และ <strong>JavaScript</strong> ของจริงผ่านการผจญภัยในดันเจี้ยน ป่าแบ็ควูดส์ ทะเลทรายซาร์เวน และธารน้ำแข็ง พร้อมผู้ช่วย AI Mentor แนะนำทีละขั้นตอน
+          </p>
+          <div class="hero-cta-group">
+            <button class="rpgui-button golden rpgui-btn-hero" type="button" onclick="App.navigate('worlds')">
+              <p>⚔️ Start Playing Now</p>
+            </button>
+          </div>
+          <div class="hero-metrics rpgui-container framed-golden-2 rpgui-flow-box">
+            <div class="metric-item"><strong>5</strong><span>Campaign Worlds</span></div>
+            <div class="metric-item"><strong>25</strong><span>Playable Levels</span></div>
+            <div class="metric-item"><strong>Python & JS</strong><span>Dual Engine</span></div>
+            <div class="metric-item"><strong>AI Mentor</strong><span>Step-by-Step Help</span></div>
+          </div>
+        </div>
+
+        <div class="hero-Showcase">
+          <div class="showcase-card rpgui-container framed-golden rpgui-flow-box">
+            <div class="showcase-header">
+              <span class="rpgui-icon sword rpgui-icon-xs"></span>
+              <span class="showcase-title">dungeons-of-kithgard.py — Live Engine Preview</span>
+            </div>
+            <div class="showcase-body">
+              <pre class="showcase-code"><code><span class="c-comment"># Guide Sir Tharin through Kithgard Dungeon!</span>
+<span class="c-kw">while</span> <span class="c-bool">True</span>:
+    enemy = hero.findNearestEnemy()
+    <span class="c-kw">if</span> enemy:
+        <span class="c-kw">if</span> hero.isReady(<span class="c-str">"cleave"</span>):
+            hero.cleave()
+        <span class="c-kw">else</span>:
+            hero.attack(enemy)
+    <span class="c-kw">else</span>:
+        item = hero.findNearestItem()
+        <span class="c-kw">if</span> item:
+            hero.moveXY(item.x, item.y)</code></pre>
+              <div class="showcase-mini-arena">
+                <div class="mini-arena-actor"><span class="sprite-animated sprite-tharin"></span> Sir Tharin</div>
+                <div class="mini-arena-vs">⚡ Cleave -18 DMG ➔</div>
+                <div class="mini-arena-enemy"><span class="sprite-animated sprite-ogre"></span> Ogre Warlord</div>
+                <div class="mini-arena-gem"><img src="/assets/sprites/gem_crystal.svg" class="mini-gem-icon" alt="Gem"> +50 Gems</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Features Section -->
+    <section class="pillars-section">
+      <div class="section-container">
+        <h2 class="section-heading">How You'll Master Coding</h2>
+        <hr class="golden rpgui-hr-divider" />
+        <div class="pillars-tabs" id="pillars-tabs">
+          <button class="pillar-tab active" onclick="App.selectPillar(0)">🎮 Game-Based Learning</button>
+          <button class="pillar-tab" onclick="App.selectPillar(1)">💻 Python & JavaScript</button>
+          <button class="pillar-tab" onclick="App.selectPillar(2)">🤖 AI Mentor Hints</button>
+          <button class="pillar-tab" onclick="App.selectPillar(3)">🛡️ Heroes & Armory</button>
+        </div>
+        <div class="pillar-display-card rpgui-container framed-golden rpgui-flow-box" id="pillar-content">
+          <!-- Populated dynamically by App.selectPillar -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== VIEW 2: CAMPAIGN WORLDS (/play) ==================== -->
+  <main id="view-worlds" class="coco-view">
+    <div class="worlds-page-wrap">
+      <div class="worlds-header">
+        <h1>Choose Your Campaign World</h1>
+        <hr class="golden rpgui-hr-divider" />
+        <p>เลือกโลกแห่งการผจญภัย ปลดล็อกด่านและสะสมเพชรเพื่ออัปเกรดฮีโร่ของคุณ</p>
+      </div>
+
+      <div id="worlds-grid" class="worlds-grid">
+        <!-- Rendered by App.renderWorlds() -->
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== VIEW 3: WORLD LEVEL MAP (/play/:world) ==================== -->
+  <main id="view-world-map" class="coco-view">
+    <div id="world-map-stage" class="world-map-stage">
+      <div class="world-map-topbar rpgui-navbar-wood">
+        <button class="rpgui-button rpgui-btn-nav" type="button" onclick="App.navigate('worlds')">
+          <p>⬅ Campaigns</p>
+        </button>
+        <div class="world-map-title-box">
+          <h1 id="world-map-title">Kithgard Dungeon</h1>
+          <p id="world-map-subtitle">Escape the dungeon and level up your coding skills!</p>
+        </div>
+        <div class="world-map-actions">
+          <button class="rpgui-button golden rpgui-btn-nav" type="button" onclick="App.openShopModal()">
+            <p>🛡️ Armory & Heroes</p>
+          </button>
+        </div>
+      </div>
+
+      <!-- Interactive Map Canvas / Nodes Container -->
+      <div id="map-nodes-container" class="map-nodes-container">
+        <svg id="map-paths-svg" class="map-paths-svg" viewBox="0 0 100 100" preserveAspectRatio="none"></svg>
+        <div id="map-nodes-layer" class="map-nodes-layer"></div>
+      </div>
+
+      <!-- Level Info Popover Card -->
+      <div id="level-popover" class="level-popover rpgui-container framed-golden hidden">
+        <div class="popover-header">
+          <span id="pop-level-num" class="pop-badge">Level 1</span>
+          <span id="pop-level-concept" class="pop-concept">Basic Syntax</span>
+          <button class="pop-close" onclick="App.closeLevelPopover()">×</button>
+        </div>
+        <h3 id="pop-level-name">Dungeons of Kithgard</h3>
+        <hr class="golden rpgui-hr-divider" />
+        <p id="pop-level-desc" class="pop-desc"></p>
+        <div id="pop-level-goals" class="pop-goals rpgui-container framed-grey rpgui-flow-box"></div>
+        <div class="pop-rewards">
+          <span><span class="rpgui-icon potion-green rpgui-icon-xs"></span> Reward: <strong id="pop-xp">50</strong> XP</span>
+          <span><span class="rpgui-icon potion-blue rpgui-icon-xs"></span> Gems: <strong id="pop-gems">40</strong></span>
+        </div>
+        <button id="pop-play-btn" class="rpgui-button golden full-width" type="button">
+          <p>⚔️ Play Level</p>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== VIEW 4: LEVEL GAMEPLAY (/play/level/:slug) ==================== -->
+  <main id="view-level" class="coco-view">
+    <!-- Intro Briefing Overlay (Matches #level-loading-view in REA capture) -->
+    <div id="level-intro-overlay" class="level-intro-overlay hidden">
+      <div class="intro-card rpgui-container framed-golden rpgui-flow-box">
+        <div class="intro-badge" id="intro-world-badge">Kithgard Dungeon • Level 1</div>
+        <h1 id="intro-level-title">Dungeons of Kithgard</h1>
+        <hr class="golden rpgui-hr-divider" />
+        <div class="intro-goals-box rpgui-container framed-grey rpgui-flow-box">
+          <div class="goals-header"><span class="rpgui-icon exclamation rpgui-icon-xs"></span> Level Goals</div>
+          <ul id="intro-goals-list" class="intro-goals-list"></ul>
+        </div>
+        <div class="intro-narrative" id="intro-narrative"></div>
+        <div class="intro-hero-preview">
+          <span id="intro-hero-summary">Playing as Sir Tharin (Python)</span>
+          <button class="btn-coco btn-sm btn-gold-outline" onclick="App.openShopModal()">🛡️ Change Hero / Gear</button>
+        </div>
+        <button class="rpgui-button golden rpgui-btn-hero" type="button" onclick="App.dismissIntroOverlay()">
+          <p>▶ Start Level</p>
+        </button>
+      </div>
+    </div>
+
+    <!-- Top Control Bar (#control-bar-view) -->
+    <div id="control-bar-view" class="control-bar rpgui-navbar-wood">
+      <div class="control-left">
+        <button class="btn-coco btn-sm btn-dark-illustrated" onclick="App.backToCurrentWorld()">
+          🗺️ Map
+        </button>
+        <div class="control-level-title">
+          <span id="play-level-number" class="level-num-pill">#1</span>
+          <strong id="play-level-name">Dungeons of Kithgard</strong>
+          <span id="play-level-concept" class="concept-pill">Basic Movement</span>
+        </div>
+      </div>
+
+      <div class="control-right">
+        <label class="lang-select-wrap" title="Choose Coding Language">
+          <span class="lang-label-text">Language:</span>
+          <select id="select-code-lang" class="rpgui-dropdown-native" onchange="App.switchCodeLanguage(this.value)">
+            <option value="python">🐍 Python</option>
+            <option value="javascript">📜 JavaScript</option>
+          </select>
+        </label>
+        <button class="btn-coco btn-sm btn-gold-outline" onclick="App.toggleHintsPanel()">
+          <span class="rpgui-icon exclamation rpgui-icon-xs"></span> <span class="ctrl-btn-text">Hints</span>
+        </button>
+        <button class="btn-coco btn-sm btn-teal" onclick="App.askAiMentor()">
+          🦅 <span class="ctrl-btn-text">Ask AI Mentor</span>
+        </button>
+        <button class="btn-coco btn-sm btn-ghost" onclick="App.resetStarterCode()" title="Reset to starter code">
+          ↺ <span class="ctrl-btn-text">Reset</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Mode Switcher (Arena vs Code Tome) - Visible on Mobile/Tablet -->
+    <div id="mobile-level-tabs" class="mobile-level-tabs">
+      <button id="mob-tab-arena" class="mob-level-tab active" onclick="App.switchMobileLevelTab('arena')">
+        ⚔️ สนามรบ (Arena)
+      </button>
+      <button id="mob-tab-code" class="mob-level-tab" onclick="App.switchMobileLevelTab('code')">
+        📜 เขียนโค้ด (Code Tome)
+      </button>
+      <button class="mob-level-run-quick" onclick="App.runCodeFromMobile()">
+        ▶ Run
+      </button>
+    </div>
+
+    <!-- Main Split Workspace: Left = Battlefield Canvas, Right = The Tome (Code Editor + Spell Palette) -->
+    <div id="level-workspace" class="level-workspace mobile-tab-arena">
+      <!-- LEFT: GAME ARENA -->
+      <div id="game-area" class="game-area">
+        <div id="canvas-wrapper" class="canvas-wrapper">
+          <canvas id="battle-canvas" width="768" height="512"></canvas>
+
+          <!-- Floating Goals Box (#goals-view) -->
+          <div id="goals-view" class="goals-overlay rpgui-container framed-golden-2">
+            <div class="goals-overlay-header" onclick="document.getElementById('goals-view').classList.toggle('collapsed')" title="Tap to collapse/expand goals">
+              <span><span class="rpgui-icon exclamation rpgui-icon-xs"></span> Goals:</span>
+              <strong id="goals-overall-status" class="goal-status incomplete">Incomplete</strong>
+            </div>
+            <ul id="live-goals-list" class="live-goals-list"></ul>
+          </div>
+
+          <!-- Floating Execution Speed / Perf Badge -->
+          <div id="sim-perf-badge" class="sim-perf-badge">Ready</div>
+
+          <!-- Bottom Dialogue Banner -->
+          <div id="dialogue-banner" class="dialogue-banner rpgui-container framed-golden">
+            <span class="dialogue-avatar">🧙‍♂️</span>
+            <p id="dialogue-text">Write your code on the right and click Run!</p>
+            <button class="btn-coco btn-xs btn-ghost" onclick="document.getElementById('dialogue-banner').classList.add('hidden')">
+              Continue (Esc)
+            </button>
+          </div>
+
+          <!-- Hints & AI Mentor Drawer -->
+          <div id="hints-drawer" class="hints-drawer rpgui-container framed-golden hidden">
+            <div class="hints-drawer-header">
+              <div class="mentor-title">
+                <span>🦅</span>
+                <strong id="mentor-drawer-title">Baby Griffin — Hints & AI Mentor</strong>
+              </div>
+              <button class="btn-close-drawer" onclick="App.closeHintsDrawer()">×</button>
+            </div>
+            <div id="hints-drawer-body" class="hints-drawer-body"></div>
+            <div class="hints-drawer-footer">
+              <button class="btn-coco btn-sm btn-teal" onclick="App.applyRecommendedSolution()">
+                ✨ Apply Solution =&gt;
+              </button>
+              <button class="btn-coco btn-sm btn-ghost" onclick="App.closeHintsDrawer()">Close</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Playback & Scrubber Bar (#playback-view) -->
+        <div id="playback-view" class="playback-bar rpgui-navbar-wood">
+          <button id="btn-playback-toggle" class="btn-coco btn-xs btn-dark-illustrated" onclick="App.togglePlaybackPause()">
+            ⏸ Pause
+          </button>
+          <div class="scrubber-wrap">
+            <input id="playback-scrubber" type="range" min="0" max="0" value="0" oninput="App.scrubToFrame(this.value)" />
+            <span id="frame-counter" class="frame-counter">Tick 0 / 0</span>
+          </div>
+          <button id="btn-speed" class="btn-coco btn-xs btn-ghost" onclick="App.cyclePlaybackSpeed()">
+            1x Speed
+          </button>
+          <div class="hud-readout">
+            <span id="hud-hero-name">Tharin</span>
+            <div class="rpgui-hp-bar-wrap" title="Hero Health Points">
+              <span class="rpgui-icon potion-red rpgui-icon-xs"></span>
+              <div class="rpgui-mini-progress">
+                <div id="hud-hp-fill" class="rpgui-mini-progress-fill red" style="width: 100%;"></div>
+              </div>
+              <strong id="hud-hp-val">30/30</strong>
+            </div>
+            <span class="hud-pos">📍 (<strong id="hud-pos-val">2, 2</strong>)</span>
+            <span class="hud-hover">🎯 (<strong id="hud-cursor-val">- , -</strong>)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: THE TOME (Code Editor + Run Bar + Spell Palette) -->
+      <div id="tome-view" class="tome-area">
+        <div class="tome-header rpgui-navbar-wood">
+          <span class="tome-title"><span class="rpgui-icon magic-slot rpgui-icon-xs"></span> The Tome — <span id="tome-filename">hero_script.py</span></span>
+          <span id="tome-line-count" class="tome-line-count">1 line</span>
+        </div>
+
+        <!-- Problem Alert Banner (#problem-alert-view) -->
+        <div id="problem-alert-view" class="problem-alert hidden">
+          <div class="problem-icon">🦆</div>
+          <div class="problem-content">
+            <strong>Fix Your Code</strong>
+            <p id="problem-alert-text"></p>
+          </div>
+          <button class="btn-coco btn-xs btn-teal" onclick="App.askAiMentor()">Ask AI</button>
+        </div>
+
+        <!-- Code Editor Container with Synchronized Line Numbers & Execution Highlight -->
+        <div class="editor-container">
+          <div id="editor-gutter" class="editor-gutter"><div>1</div></div>
+          <div class="editor-stage">
+            <div id="editor-active-line-bar" class="editor-active-line-bar hidden"></div>
+            <textarea
+              id="code-editor"
+              class="code-editor"
+              spellcheck="false"
+              autocapitalize="off"
+              autocomplete="off"
+              autocorrect="off"
+              wrap="off"
+              placeholder="# Type your hero commands here..."
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Cast / Run Action Bar (#cast-button-view) -->
+        <div class="cast-bar rpgui-navbar-wood">
+          <button id="btn-run-code" class="rpgui-button golden rpgui-btn-cast" type="button" onclick="App.runCode()">
+            <p>⚔️ Cast / Run (Cmd+Enter)</p>
+          </button>
+          <button id="btn-next-level" class="btn-coco btn-lg btn-success-illustrated hidden" onclick="App.goToNextLevel()">
+            🏆 Done — Next Level ➔
+          </button>
+        </div>
+
+        <!-- Spell Palette (#spell-palette-view) -->
+        <div id="spell-palette-view" class="spell-palette rpgui-container framed-golden-2 rpgui-flow-box">
+          <div class="spell-palette-header">
+            <span><span class="rpgui-icon sword rpgui-icon-xs"></span> Spell Palette (Click a method to insert into your code)</span>
+          </div>
+          <div id="spell-palette-list" class="spell-palette-list"></div>
+          <div id="spell-doc-preview" class="spell-doc-preview">
+            Hover over any method above to inspect its documentation and parameters.
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== MODAL 1: HARD LOGIN (SINGLE FIXED USER) ==================== -->
+  <div id="modal-auth" class="coco-modal-backdrop hidden">
+    <div class="coco-modal rpgui-container framed-golden rpgui-flow-box">
+      <div class="modal-header">
+        <h2 id="auth-modal-title">🔑 Login</h2>
+        <button class="modal-close" onclick="App.closeModals()">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-auth" onsubmit="App.submitAuthForm(event)">
+          <div class="form-group">
+            <label>Username</label>
+            <input id="auth-username" type="text" required value="hero" placeholder="hero" />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input id="auth-password" type="password" required value="1234" placeholder="1234" />
+          </div>
+          <div id="auth-error-msg" class="form-error hidden"></div>
+          <button type="submit" class="rpgui-button golden full-width">
+            <p>⚔️ Login</p>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 2: HEROES & EQUIPMENT SHOP ==================== -->
+  <div id="modal-shop" class="coco-modal-backdrop hidden">
+    <div class="coco-modal modal-wide rpgui-container framed-golden rpgui-flow-box">
+      <div class="modal-header">
+        <h2><span class="rpgui-icon shield rpgui-icon-sm"></span> Heroes & Equipment Armory</h2>
+        <button class="modal-close" onclick="App.closeModals()">×</button>
+      </div>
+      <div class="modal-body">
+        <h3 class="shop-section-title">1. Choose Your Hero</h3>
+        <hr class="golden rpgui-hr-divider" />
+        <div id="shop-heroes-grid" class="shop-heroes-grid"></div>
+
+        <h3 class="shop-section-title" style="margin-top:20px;">2. Equip Gear & Unlock Methods</h3>
+        <hr class="golden rpgui-hr-divider" />
+        <div id="shop-items-grid" class="shop-items-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 3: LEADERBOARD ==================== -->
+  <div id="modal-leaderboard" class="coco-modal-backdrop hidden">
+    <div class="coco-modal modal-wide rpgui-container framed-golden rpgui-flow-box">
+      <div class="modal-header">
+        <h2><span class="rpgui-icon ring-slot rpgui-icon-sm"></span> Kithgard Hall of Champions (Leaderboard)</h2>
+        <button class="modal-close" onclick="App.closeModals()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="roster-table-scroll">
+          <table class="coco-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Adventurer</th>
+                <th>Hero</th>
+                <th>Levels Cleared</th>
+                <th>Total XP</th>
+                <th>Gems 💎</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="coco-toast" class="coco-toast rpgui-container framed-golden hidden"></div>
+
+  <script src="/rpgui/rpgui.js"></script>
+  <script src="/js/audio.js"></script>
+  <script src="/js/renderer.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

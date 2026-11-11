@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <defs>
+    <radialGradient id="fire-core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#fde047"/>
+      <stop offset="65%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#7c2d12" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="40" cy="40" r="36" fill="url(#fire-core)"/>
+  <circle cx="40" cy="40" r="16" fill="#ffffff" filter="drop-shadow(0 0 8px #f59e0b)"/>
+  <polygon points="40,4 44,28 68,16 52,36 76,40 52,44 68,64 44,52 40,76 36,52 12,64 28,44 4,40 28,36 12,16 36,28" fill="#f97316" opacity="0.8"/>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <radialGradient id="hattori-bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#05050d" stop-opacity="0.98"/>
+    </radialGradient>
+    <linearGradient id="ninja-robe" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b0764"/>
+      <stop offset="50%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="24" fill="url(#hattori-bg)" stroke="#9333ea" stroke-width="3"/>
+  <!-- Shoulders -->
+  <path d="M20 112 C24 86 42 78 64 78 C86 78 104 86 108 112 Z" fill="url(#ninja-robe)" stroke="#a855f7" stroke-width="1.5"/>
+  <!-- Katana hilt & scabbard strap across chest -->
+  <path d="M28 114 L94 80" stroke="#7e22ce" stroke-width="5" stroke-linecap="round"/>
+  <path d="M94 76 L112 56" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round"/>
+  <rect x="92" y="73" width="6" height="8" rx="1" fill="#eab308" transform="rotate(-40 95 77)"/>
+  <!-- Ninja Cowl Hood -->
+  <path d="M38 52 C38 24 90 24 90 52 C90 76 80 84 64 84 C48 84 38 76 38 52 Z" fill="#18181b" stroke="#6b21a8" stroke-width="2"/>
+  <!-- Ninja Headband -->
+  <path d="M37 42 C46 38 82 38 91 42 L91 48 C82 44 46 44 37 48 Z" fill="#581c87" stroke="#9333ea" stroke-width="1"/>
+  <!-- Metal Forehead Plate -->
+  <rect x="52" y="41" width="24" height="8" rx="2" fill="#94a3b8" stroke="#475569" stroke-width="1"/>
+  <circle cx="55" cy="45" r="1" fill="#1e293b"/>
+  <circle cx="73" cy="45" r="1" fill="#1e293b"/>
+  <!-- Ninja Clan Symbol (Shuriken/Slash) -->
+  <path d="M64 43 L66 45 L64 47 L62 45 Z" fill="#a855f7"/>
+  <!-- Eye Opening in Mask -->
+  <path d="M46 50 L82 50 L80 60 L48 60 Z" fill="#09090b"/>
+  <!-- Glowing Violet Eyes -->
+  <ellipse cx="55" cy="55" rx="4.5" ry="2.5" fill="#c084fc" filter="drop-shadow(0 0 3px #a855f7)"/>
+  <circle cx="55" cy="55" r="1.2" fill="#ffffff"/>
+  <ellipse cx="73" cy="55" rx="4.5" ry="2.5" fill="#c084fc" filter="drop-shadow(0 0 3px #a855f7)"/>
+  <circle cx="73" cy="55" r="1.2" fill="#ffffff"/>
+  <!-- Mask Lower Face Wrap -->
+  <path d="M44 60 C52 58 76 58 84 60 C82 76 74 82 64 82 C54 82 46 76 44 60 Z" fill="#18181b" stroke="#3b0764" stroke-width="1"/>
+  <path d="M54 68 Q64 72 74 68" stroke="#27272a" stroke-width="1.5" fill="none"/>
+</svg>

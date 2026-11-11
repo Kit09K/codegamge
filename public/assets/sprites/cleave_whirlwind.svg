@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <radialGradient id="cleave-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="40%" stop-color="#fde047" stop-opacity="0.1"/>
+      <stop offset="80%" stop-color="#f59e0b" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="60" cy="60" r="56" fill="url(#cleave-glow)"/>
+  <circle cx="60" cy="60" r="52" stroke="#fde047" stroke-width="4" stroke-dasharray="30 15 45 10" fill="none"/>
+  <circle cx="60" cy="60" r="42" stroke="#fb923c" stroke-width="3" stroke-dasharray="20 20" fill="none"/>
+  <circle cx="60" cy="60" r="32" stroke="#ffffff" stroke-width="2" stroke-dasharray="10 15" fill="none"/>
+</svg>
