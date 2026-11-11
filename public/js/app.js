@@ -899,6 +899,24 @@ const App = {
     await this.runCode();
   },
 
+  onBrandIconClick(e) {
+    if (e) e.preventDefault();
+    this._iconClickCount = (this._iconClickCount || 0) + 1;
+    clearTimeout(this._iconClickTimer);
+    if (this._iconClickCount >= 5) {
+      this._iconClickCount = 0;
+      this.closeModals();
+      const modal = document.getElementById('modal-easter-egg');
+      if (modal) modal.classList.remove('hidden');
+      if (typeof CocoAudio !== 'undefined' && CocoAudio.victory) CocoAudio.victory();
+      return;
+    }
+    this._iconClickTimer = setTimeout(() => {
+      this._iconClickCount = 0;
+    }, 2200);
+    this.navigate('home');
+  },
+
   toast(msg) {
     const el = document.getElementById('coco-toast');
     if (!el) return;

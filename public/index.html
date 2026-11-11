@@ -13,7 +13,7 @@
   <header id="main-nav" class="coco-navbar rpgui-navbar-wood">
     <div class="nav-inner">
       <div class="nav-left">
-        <a href="#/" class="brand-logo" onclick="App.navigate('home'); return false;">
+        <a href="#/" class="brand-logo" onclick="App.onBrandIconClick(event); return false;">
           <div class="rpgui-icon sword rpgui-icon-sm"></div>
           <div class="logo-text-wrap">
             <span class="logo-title">Codegamge</span>
@@ -487,6 +487,19 @@
             <tbody id="leaderboard-body"></tbody>
           </table>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 4: SECRET EASTER EGG (5x ICON CLICK) ==================== -->
+  <div id="modal-easter-egg" class="coco-modal-backdrop hidden" onclick="if(event.target===this) App.closeModals()">
+    <div class="coco-modal rpgui-container framed-golden rpgui-flow-box" style="max-width:460px; text-align:center;">
+      <div class="modal-header">
+        <h2>😎 Secret Boss Unlocked!</h2>
+        <button class="modal-close" onclick="App.closeModals()">×</button>
+      </div>
+      <div class="modal-body" style="padding:12px;">
+        <img src="/assets/easter-egg.jpg" alt="Secret Easter Egg" style="width:100%; max-height:72vh; object-fit:contain; border-radius:10px; border:2px solid #eab308; box-shadow:0 8px 25px rgba(0,0,0,0.6);" />
       </div>
     </div>
   </div>
