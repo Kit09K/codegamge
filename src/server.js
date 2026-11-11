@@ -467,8 +467,8 @@ const server = http.createServer(async (req, res) => {
 });
 
 if (require.main === module) {
-  server.listen(PORT, () => {
-    console.log(`⚔️  CodeCombat Local Server running at http://localhost:${PORT}`);
+  server.listen(PORT, '0.0.0.0', () => {
+    console.log(`⚔️  Codegamge Server running at http://0.0.0.0:${PORT}`);
   });
 }
 
